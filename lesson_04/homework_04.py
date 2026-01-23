@@ -96,7 +96,11 @@ print(f"слово Tom зустрічається вдруге на позици
 """ Розділіть змінну adwentures_of_tom_sawer по кінцю речення.
 Збережіть результат у змінній adwentures_of_tom_sawer_sentences
 """
-adventures_of_tom_sawer_sentences = [s.strip() for s in new_part_3.split(".") if s.strip()]
+#adventures_of_tom_sawer_sentences = [s.strip() for s in new_part_3.split(".") if s.strip()]
+adventures_of_tom_sawer_sentences = []
+for s in new_part_3.split("."):
+    if s.strip():
+        adventures_of_tom_sawer_sentences.append(s.strip())
 print(f"adventures_of_tom_sawer_sentences -->\n {adventures_of_tom_sawer_sentences}")
 print(" = " * 20)
 
