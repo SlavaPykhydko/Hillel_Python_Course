@@ -61,7 +61,7 @@ for car in car_data:
         # print(type(details))
         search_result[car] = details
         search_result.update({car: details})
-# print(type(search_result))
+print(type(search_result))
 sorted_search_result = sorted(search_result.items(), key=lambda item: item[1][4])
 # print(type(sorted_search_result))
 the_cheapest_n = dict(islice(sorted_search_result, first_n_results))
