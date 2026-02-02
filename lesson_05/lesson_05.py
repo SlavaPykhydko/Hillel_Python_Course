@@ -35,3 +35,51 @@ dict_5 = {"d": 4, "e": 5, "f": 6}
 # dict_4 = dict_4 | dict_5
 dict_4 |= dict_5
 print(f"{dict_4= }")
+
+lst = ['a', 'b', 'a', 'c', 'a']
+
+indices = [i for i, v in enumerate(lst) if v == 'a']
+print(indices)
+
+products = {
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "d": 4,
+}
+
+new_dict = {}
+for title, price in products.items():
+    new_dict[title] = price
+print(new_dict)
+
+new_dict_2 = {title: '%.2f' % (price * 1.1) for title, price in products.items() if price > 1}
+print(new_dict_2)
+
+dict_6 = {n: n*n for n in range(1,6)}
+print(dict_6)
+
+sum_1=0
+dict_7 = {'data_1': 100, 'data_2': -54, 'data_3': 247}
+for k, v in dict_7.items():
+    sum_1 += v
+print(f"sum_1 = {sum_1}")
+
+dict_8 = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+list_8 = ['x', 'y', 'b', 'd', 'e']
+dict_8 = {k: v for k, v in dict_8.items() if k not in list_8}
+print(dict_8)
+
+dict_9 = {'n': 1, 'k': 2, 'c': 3, 'a': 4}
+# sorted_dict_9 = {k:v for k, v in dict_9.items() if v > 0}
+sorted_dict_9 = dict(sorted(dict_9.items(), key=lambda item: item[0]))
+print(sorted_dict_9)
+
+
+dict_10 = {'a': 1, 'b': 20, 'c': 3, 'd': 5, 'e': 134, 'k': 40, 'm': 8}
+
+min2= min(dict_10.values())
+max2 = max(dict_10.values())
+print(type(dict_10.values()))
+print(min2)
+print(max2)
