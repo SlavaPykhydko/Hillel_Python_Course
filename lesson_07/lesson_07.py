@@ -103,3 +103,17 @@ def filter_cities_2(lst, population_count):
 
 filtered_cities_5 = filter_cities_2(cities, 3_000_000)
 print(filtered_cities_5)
+
+dict1 = {'a': 10, 'b': 20, 'c': 30}
+dict2 = {'a': 12, 'bf': 25, 'c': 38}
+
+def compare_grades(dict1, dict2):
+    result_dict = {}
+    for key in dict1:
+        if key in dict2:
+            result_dict[key] = dict1[key] - dict2[key]
+        else:
+            print(f'{key} is not in second dict')
+    return result_dict
+
+print(compare_grades(dict1, dict2))
