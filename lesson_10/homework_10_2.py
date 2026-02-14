@@ -1,10 +1,14 @@
-class Figure:
+from abc import ABC, abstractmethod
 
+class Figure(ABC):
+
+    @abstractmethod
     def square(self):
-        print("Calculating square...")
+        pass
 
+    @abstractmethod
     def perimeter(self):
-        print("Calculating perimeter...")
+        pass
 
 class Rectangle(Figure):
     def __init__(self, side_a: float, side_b: float):
