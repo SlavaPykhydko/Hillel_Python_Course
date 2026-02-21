@@ -1,9 +1,17 @@
+import math
+
 class Sphere:
     def __init__(self, radius):
+        if not isinstance(radius, (int, float)):
+            raise TypeError("Radius must be a number")
+
+        if radius <= 0:
+            raise ValueError("Radius must be positive")
+
         self.radius = radius
 
     def volume(self):
-        return (4/3) * 3.14 * self.radius**3
+        return (4/3) * math.pi * self.radius**3
 
 class Cube:
     def __init__(self, side_length):
