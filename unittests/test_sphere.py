@@ -1,6 +1,8 @@
 import unittest
 import math
-from lesson_09.homework_09_2 import Sphere, calculate_volume
+from unittest.mock import patch, Mock
+from lesson_09.homework_09_2 import Sphere, calculate_volume_and_log, SimpleLogger
+
 
 class TestSphere(unittest.TestCase):
 
@@ -22,7 +24,7 @@ class TestSphere(unittest.TestCase):
         for radius, expected_volume in test_cases:
             with self.subTest(radius=radius):
                 sphere = Sphere(radius=radius)
-                actual_volume = calculate_volume(sphere)
+                actual_volume = sphere.volume()
                 self.assertAlmostEqual(actual_volume, expected_volume, places=3)
 
     def test_sphere_negative_values_for_valueError(self):
@@ -40,5 +42,29 @@ class TestSphere(unittest.TestCase):
                     Sphere(radius=radius)
                 self.assertIn("number", str(context.exception))
 
+
+    def test_calculate_and_log(self):
+        sphere = Sphere(radius=2)
+        logger = SimpleLogger()
+        expected_volume = calculate_volume_and_log(sphere, logger)
+        expected_message = f'Object: {sphere}, volume is: {sphere.volume()}'
+
+        self.assertEqual(logger.last_message, expected_message)
+        self.assertEqual(expected_volume, sphere.volume())
+
+        # mock_obj = Mock()
+        # mock_obj.volume.return_value = 50
+        # mock_obj.__repr__ = Mock(return_value="Sphere(radius=2)")
+        #
+        # mock_logger = Mock()
+        #
+        # result = calculate_volume_and_log(mock_obj, mock_logger)
+        #
+        # self.assertEqual(result, 50)
+        # mock_obj.volume.assert_called_once()
+        # mock_logger.log.assert_called_once_with(
+        #     "Object: Sphere(radius=2), volume is: 50"
+        # )
+
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(verbosity=2)
